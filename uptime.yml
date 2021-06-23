@@ -1,0 +1,13 @@
+---
+- name : test
+  become: true
+  hosts: all
+
+  tasks:
+    - name: "check/display uptime"
+      register: hostname
+      shell: uptime
+
+    -
+     debug:
+      msg: " uptime :{{hostname.stdout}} "
